@@ -1,0 +1,20 @@
+version: "2"
+services:
+  plex:
+    image: linuxserver/plex
+    volumes: 
+      - /home/alex/Media/TV Shows:/data/tvshows
+      - /home/alex/Media/Movies:/data/movies
+      - /home/alex/Media/Music:/data/music
+      - ./config:/config
+    environment:
+      VERSION: "latest"
+      TZ: "Amercia/Detroit"
+    restart: always
+    ports: 
+      - "32400:32400"
+      - "32400:32400/udp"
+      - "32469:32469"
+      - "32469:32469/udp"
+      - "5353:5353/udp"
+      - "1900:1900/udp"
