@@ -1,0 +1,8 @@
+version: "3"
+services: 
+  mopidy: 
+    image: malted/mopidy-pulseaudio-server
+    environment:
+      USER: "${SPOTIFY_USER}"
+      PASS: "${SPOTIFY_PASSWORD}"
+    network_mode: "host"

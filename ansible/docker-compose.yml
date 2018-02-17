@@ -1,0 +1,9 @@
+version: '2'
+services:
+  ansible:    
+    image: williamyeh/ansbile:alpine3
+    volumes: 
+      -- ./playbooks:/ansible/playbooks
+      -- /home/ansible/ssh/:/root/.ssh/
+      -- /home/ansible/hosts:/etc/ansbile/hosts
+    restart: always
