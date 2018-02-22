@@ -1,0 +1,5 @@
+[global]
+username = USER
+password = PASS
+backend = pulseaudio
+bitrate = 320

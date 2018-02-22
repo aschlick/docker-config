@@ -1,2 +1,3 @@
 plex/config/
 .env
+spotify/spotifyd.conf
