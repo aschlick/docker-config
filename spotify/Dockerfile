@@ -24,5 +24,7 @@ ADD startup.sh /startup.sh
 run chmod +x /startup.sh
 
 EXPOSE 6767
+EXPOSE 4713
 
-#CMD /startup.sh
+ENTRYPOINT "/startup.sh"
+# ENTRYPOINT ["/spotifyd/target/release/spotifyd", "-c", "/etc/spotifyd/spotifyd.conf", "--no-daemon"]

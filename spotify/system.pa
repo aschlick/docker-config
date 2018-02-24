@@ -50,16 +50,12 @@ load-module module-rescue-streams
 ### Make sure we always have a sink around, even if it is a null sink.
 load-module module-always-sink
 
-### Automatically suspend sinks/sources that become idle for too long
-load-module module-suspend-on-idle
-
 ### Enable positioned event sounds
 load-module module-position-event-sounds
 
 ### enable networked sound
 load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.3.0/24 auth-anonymous=1
-load-module module-esound-protocol-tcp
 load-module module-zeroconf-publish
 
-load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=44100 sink_properties="device.description='RTP Multicast Sink'"
+load-module module-null-sink sink_name=rtp format=s16be channels=8 rate=44100 sink_properties="device.description='RTP Multicast Sink'"
 load-module module-rtp-send source=rtp.monitor
