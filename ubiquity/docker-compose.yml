@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  unifi:
+    image: goofball222/unifi
+    container_name: unifi
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 3478:3478/udp
+      - 8080:8080
+      - 8443:8443
+      - 8880:8880
+      - 8843:8843
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./cert:/usr/lib/unifi/cert
+      - ./data:/usr/lib/unifi/data
+      - ./logs:/usr/lib/unifi/logs
+    environment:
+      - TZ=UTC
