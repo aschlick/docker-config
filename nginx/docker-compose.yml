@@ -10,4 +10,5 @@ services:
       - ./http/:/etc/nginx/http:ro
       - ./https/:/etc/nginx/https:ro
       - ./www/:/usr/share/nginx/html:ro
+      - /home/githubactions/party_fowl_games/:/www/party_fowl_games:ro
     restart: always

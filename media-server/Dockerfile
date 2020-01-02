@@ -13,5 +13,18 @@ RUN scons -Q --enable-pulseaudio-modules --build-3rdparty=openfec,pulseaudio ins
 
 WORKDIR ../
 
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+RUN git clone https://github.com/librespot-org/librespot.git
+WORKDIR librespot
+RUN $HOME/.cargo/bin/cargo build --release --no-default-features --features pulseaudio-backend
+
+WORKDIR ../
+
+EXPOSE 10000
+EXPOSE 10001
+
 ENTRYPOINT ["/bin/tini", "--"]
-CMD ["pulseaudio", "-D", "--system"]
+EXEC ["librespot/target/release/librespot", "--name", "Server"]
+COPY ./start.sh ./start.sh
+CMD ["./start.sh"]
