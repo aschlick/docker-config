@@ -4,7 +4,9 @@ services:
   media-server:
     build: .
     restart: unless-stopped
-    network_mode: bridge
-    ports:
-      - 10000:10000
-      - 10001:10001
+    network_mode: host
+#    ports:
+#      - 10000:10000
+#      - 10001:10001
+#      - 40927:4000/tcp
+#      - 40927:4000/udp

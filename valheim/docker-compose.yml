@@ -1,0 +1,13 @@
+version: '2'
+services:
+  valheim:
+    image: lloesche/valheim-server
+    ports:
+      - "2456-2458:2456-2458/udp"
+    volumes:
+      - ./valheimworld:/config
+    environment:
+      SERVER_NAME: "Schlick Valheim Server"
+      WORLD_NAME: "babyboys"
+      SERVER_PASS: "penis"
+    restart: always

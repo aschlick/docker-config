@@ -1,3 +1,8 @@
 plex/config/
 .env
 spotify/spotifyd.conf
+awx/
+bitwarden/
+valheim/backups/
+valheim/valheimworld/
+leon/
