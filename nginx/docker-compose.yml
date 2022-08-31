@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services: 
   nginx:
     image: nginx
@@ -10,5 +10,10 @@ services:
       - ./http/:/etc/nginx/http:ro
       - ./https/:/etc/nginx/https:ro
       - ./www/:/usr/share/nginx/html:ro
-      - /home/githubactions/party_fowl_games/:/www/party_fowl_games:ro
+      - /home/docker/phasmophobia-cheatsheet/build/:/usr/share/nginx/phasmophobia-cheatsheet:ro
     restart: always
+    networks: 
+      - web
+
+networks:
+  web: 
