@@ -1,5 +1,5 @@
 version: '3'
-services: 
+services:
   nginx:
     image: nginx
     ports:
@@ -12,8 +12,8 @@ services:
       - ./www/:/usr/share/nginx/html:ro
       - /home/docker/phasmophobia-cheatsheet/build/:/usr/share/nginx/phasmophobia-cheatsheet:ro
     restart: always
-    networks: 
+    networks:
       - web
 
 networks:
-  web: 
+  web:

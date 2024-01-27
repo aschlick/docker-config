@@ -1,3 +1,6 @@
+.DS_Store
+._.DS_Store
+phasmophobia-cheatsheet/
 plex/config/
 .env
 spotify/spotifyd.conf

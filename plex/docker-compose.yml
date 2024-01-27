@@ -2,20 +2,26 @@ version: "3.8"
 services:
   plex:
     image: linuxserver/plex
-    volumes: 
+    container_name: plex
+    volumes:
       - /home/alex/Media/TV Shows:/data/tvshows
       - /home/alex/Media/Movies:/data/movies
       - /home/alex/Media/Music:/data/music
       - ./config:/config
     environment:
-      VERSION: "latest"
-      TZ: "Amercia/Detroit"
-    restart: always
-    ports: 
+      - PUID=1000
+      - GUID=1000
+      - VERSION=latest
+      - TZ=Amercia/Detroit
+      - PLEX_CLAIM=claim-QCyMFxpeEWx1Pasyhv16
+    restart: unless-stopped
+    ports:
       - "32400:32400"
       - "32400:32400/udp"
-      - "33443:33443"
-      - "33443:33443/udp"
-      - "32469:32469"
-      - "32469:32469/udp"
-      - "1900:1900/udp"
+    networks:
+      - nginx_web
+networks:
+  nginx_web:
+    external: true
+
+
